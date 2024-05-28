@@ -2,7 +2,7 @@
 
 pkgname=rtl-sdr-blog-git
 pkgrel=1
-pkgver=V1.2.r0.g7b16cfb
+pkgver=1.3.5.r0.g065e3d1
 epoch=1
 pkgdesc="Tuner for DVB-T sticks based on the Realtek RTL2832U, which can be used as a cheap SDR, since the chip allows transferring the raw I/Q samples to the host. RTL Blog edition to support RTL-SDR V4 dongles."
 arch=('i686' 'x86_64' 'aarch64')
@@ -36,5 +36,6 @@ package() {
   install -D -m644 "${srcdir}/rtl-sdr-blog/rtl-sdr.rules" \
     "${pkgdir}/usr/lib/udev/rules.d/10-rtl-sdr.rules"
   install -Dm644 "$srcdir/rtl-sdr-blog.conf" "$pkgdir/etc/modprobe.d/rtl-sdr-blog.conf"
+  ln -s librtlsdr.so "${pkgdir}/usr/lib/librtlsdr.so.2"
 }
 
